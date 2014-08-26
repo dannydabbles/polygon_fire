@@ -1,0 +1,83 @@
+CMPS 160 - Final Project
+Daniel Key - dkey@ucsc.edu
+Sam Medalen-smedalen@ucsc.edu
+
+Keyboard Controls:
+       q= Quits program.
+       \= toggle world axis on/off.
+       r= reset model to initial position.
+       p= toggles between Orthorgraphic and Perspective.
+       += increases draw speed, fade speed, spread speed and length of 
+       	  particle life.
+       -= decreases draw speed, fade speed, spread speed and length of 
+       	  particle life.
+
+       Axis toggle keys:
+       x= toggles transform axis to x.
+       y= toggles transform axis to y.
+       z= toggles transform axis to z.
+       c= toggles rotation axis to x.
+       v= toggles rotation axis to y.
+       b= toggles rotation axis to z.
+       " "=toggles firespread on/off.
+       ;= toggles between wireframe and quads.
+       f= toggles fire drawing on/off.
+       g= toggles "burnt" polygon coloring on/off.
+       t= toggles object drawing on/off.
+       a= toggles camera strafing left.
+       d= toggles camera strafing right.
+       w= toggles camera movement forward.
+       s= toggles camera movement backwards.
+       j= toggles camera look left pivot at eye.
+       l= tottles camera look right pivot at eye.
+       i= toggles camera movement up in y.
+       k= toggles camera movement down in y.
+       
+       NOTES: Starts in firespread off mode.
+       	      x, y, z, c, v, and b keys to not work in conjunction.
+              User must fully release both mouse button
+	      and axis toggle keys before pressing a new
+	      axis toggle key.
+	      g only changes anythign when in quad mode.
+
+Mouse Controls:
+  left click= used in conjunction with x, y, z, c, v, or b as listed
+              above, rotates model around object coordinate 
+	      frame.
+	    = When pressed directly on a polygon sets that polygon on fire.
+    NOTES:  Will only see effect in quad burnt mode.  But does not mean does
+    	    not take effect.
+
+       
+Platform: Unix.ic system
+
+Compiler: G++
+
+Description: This program uses openGL to create an object made of polygons.
+	     It then subdivides those polygons to a predermined area and 
+	     side length.  After at least one polygon is "set on fire" and
+	     the game is released the fire will spread out from that polygon
+	     along the whole object.
+
+
+File List:
+3Dmodel - executable
+3Dmodel.cpp- code
+3Dmodel.h  - code
+enterprise.coor enterprise.ploly
+woman.coor woman.poly
+frame.coor frame.poly
+Makefile - generic makefile compile with "gmake"
+	   	   	    run with "gmake run"-runs with enterprise
+			    run with "3Dmodel XXX.coor XXX.poly..."
+			    	-can accept up to 10 sets of files.
+README - This file
+
+Problems:
+	-Input files must contain only convex or flat Polygons.
+	-When l or j is pressed the first time(or after reset) immedietly 
+	 looks directly at x axis, could not fix.
+	-Sometimes when camera is moved or object is moved picking(setting
+	 polygons on fire) automatically occurs at the center of the screen.
+	-Program is processer intensive.  Sprites will not run on some older
+	 computers.  Everything runs slow on some older machines.
